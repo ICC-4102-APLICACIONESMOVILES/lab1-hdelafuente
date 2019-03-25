@@ -1,5 +1,7 @@
 package com.example.hdelafuente.log_in
 
+import android.app.Activity
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -29,10 +31,12 @@ class log_in : AppCompatActivity() {
             val password = et_password.text
 
             if (isEmailValid(user_name.toString())){
-                Toast.makeText(this@log_in, user_name, Toast.LENGTH_LONG).show()
+                val text = "Username: " + user_name + "\nPassword: " + password
+                Toast.makeText(this@log_in, text, Toast.LENGTH_LONG).show()
                 val intent = Intent(this@log_in, main::class.java)
                 intent.putExtra("username", user_name)
                 intent.putExtra("password", password)
+                setResult(Activity.RESULT_OK, intent)
                 finish()
 
             }
