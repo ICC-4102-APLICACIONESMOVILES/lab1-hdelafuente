@@ -31,9 +31,10 @@ class log_in : AppCompatActivity() {
             if (isEmailValid(user_name.toString())){
                 Toast.makeText(this@log_in, user_name, Toast.LENGTH_LONG).show()
                 val intent = Intent(this@log_in, main::class.java)
-                intent.putExtra("Username: ", user_name)
-                intent.putExtra("Password: ", password)
-                
+                intent.putExtra("username", user_name)
+                intent.putExtra("password", password)
+                finish()
+
             }
             else {
                 et_username.setText("")
